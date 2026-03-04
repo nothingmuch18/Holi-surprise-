@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Holi Classmates</title>
+
+<style>
+body{
+margin:0;
+overflow:hidden;
+background:black;
+font-family:monospace;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+h1{
+font-size:50px;
+}
+
+button{
+padding:20px 40px;
+font-size:20px;
+border:none;
+background:yellow;
+cursor:pointer;
+border-radius:10px;
+}
+
+.color{
+position:absolute;
+width:20px;
+height:20px;
+border-radius:50%;
+animation:explode 2s linear forwards;
+}
+
+@keyframes explode{
+0%{transform:scale(1);}
+100%{transform:translate(var(--x),var(--y)) scale(5); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div>
+<h1>💻 Developer Holi Surprise 💻</h1>
+<p>Click to execute Holi.exe</p>
+<button onclick="explode()">Run Program</button>
+</div>
+
+<script>
+
+function explode(){
+
+document.body.innerHTML = `
+<h1>🎨 HAPPY HOLI CLASSMATES 🎨</h1>
+<p>May your code compile on first try<br>
+and your life be as colorful as Holi!</p>
+<p>– Aryan (CSE Developer)</p>
+`;
+
+for(let i=0;i<200;i++){
+
+let color=document.createElement("div");
+color.className="color";
+
+color.style.background=`hsl(${Math.random()*360},100%,50%)`;
+
+color.style.left=window.innerWidth/2+"px";
+color.style.top=window.innerHeight/2+"px";
+
+color.style.setProperty("--x",(Math.random()*2000-1000)+"px");
+color.style.setProperty("--y",(Math.random()*2000-1000)+"px");
+
+document.body.appendChild(color);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
